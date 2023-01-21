@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-public interface ClienteService {
+public interface ClientesService {
 
     List<Cliente> todosCliente();
     Cliente criarCliente(Cliente cliente) throws IOException;

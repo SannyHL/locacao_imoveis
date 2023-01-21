@@ -2,8 +2,7 @@ package br.com.locacao.imoveis.controller;
 
 
 import br.com.locacao.imoveis.model.Cliente;
-import br.com.locacao.imoveis.service.ClienteService;
-import br.com.locacao.imoveis.utils.MethodsUtils;
+import br.com.locacao.imoveis.service.ClientesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ClienteController {
 
-   private final ClienteService clienteService;
+   private final ClientesService clienteService;
     @PostMapping
     public ResponseEntity<Cliente> criarCliente(@RequestBody Cliente cliente) throws IOException {
         return ResponseEntity.ok(clienteService.criarCliente(cliente));

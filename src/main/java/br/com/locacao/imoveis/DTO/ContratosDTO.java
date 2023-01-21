@@ -1,30 +1,31 @@
 package br.com.locacao.imoveis.DTO;
 
-import br.com.locacao.imoveis.model.Enderecos;
+import br.com.locacao.imoveis.model.Cliente;
+import br.com.locacao.imoveis.model.Imoveis;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDTO {
+public class ContratosDTO {
 
     @NotBlank
     private Long id;
     @NotBlank
-    private String nome;
+    private Long valorLocacao;
+    private Date dataInicio;
     @NotBlank
-    private String cpfCnpj;
+    private Date dataFim;
     @NotBlank
-    private String email;
+    private Cliente cliente;
     @NotBlank
-    private String telefone;
-
-    @NotBlank
-    private Enderecos endereco;
+    private Imoveis imovel;
 }

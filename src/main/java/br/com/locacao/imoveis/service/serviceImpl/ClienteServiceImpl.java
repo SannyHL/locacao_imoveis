@@ -1,26 +1,21 @@
 package br.com.locacao.imoveis.service.serviceImpl;
 
 import br.com.locacao.imoveis.model.Cliente;
-import br.com.locacao.imoveis.repository.ClienteRepository;
-import br.com.locacao.imoveis.service.ClienteService;
+import br.com.locacao.imoveis.repository.ClientesRepository;
+import br.com.locacao.imoveis.service.ClientesService;
 import br.com.locacao.imoveis.utils.MethodsUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ClienteServiceImpl implements ClienteService {
+public class ClienteServiceImpl implements ClientesService {
 
-    private final ClienteRepository clienteRepository;
+    private final ClientesRepository clienteRepository;
 
     @Override
     public List<Cliente> todosCliente() {
