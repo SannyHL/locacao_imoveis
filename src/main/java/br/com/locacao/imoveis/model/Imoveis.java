@@ -23,7 +23,7 @@ public class Imoveis {
     private Boolean ativo;
 
     @ManyToOne
-    @JoinColumn(name = "endereco_id")
+    @JoinColumn(name = "endereco_cep")
     private Enderecos endereco;
 
 }

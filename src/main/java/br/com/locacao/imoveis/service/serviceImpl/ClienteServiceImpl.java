@@ -1,10 +1,15 @@
 package br.com.locacao.imoveis.service.serviceImpl;
 
-import br.com.locacao.imoveis.model.Cliente;
+import br.com.locacao.imoveis.DTO.ClientesDTO;
+import br.com.locacao.imoveis.model.Clientes;
+import br.com.locacao.imoveis.model.Enderecos;
 import br.com.locacao.imoveis.repository.ClientesRepository;
+import br.com.locacao.imoveis.repository.EnderecosRepository;
 import br.com.locacao.imoveis.service.ClientesService;
 import br.com.locacao.imoveis.utils.MethodsUtils;
+import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -16,43 +21,58 @@ import java.util.Optional;
 public class ClienteServiceImpl implements ClientesService {
 
     private final ClientesRepository clienteRepository;
+    private final EnderecosRepository enderecosRepository;
+
+    private final ModelMapper modelMapper;
 
     @Override
-    public List<Cliente> todosCliente() {
+    public List<Clientes> buscarTodosCliente() {
         return clienteRepository.findAll();
     }
 
-    @Override
-    public Cliente criarCliente(Cliente cliente) throws IOException {
-        //validar ou colocar notações ....
-        //validar se cpf ja existe?? ou email ??
-        String x = MethodsUtils.buscaCep("31270110");
-        return clienteRepository.save(cliente);
+    public Clientes buscarClientesPorId(Long id){
+         Optional<Clientes> clientes = clienteRepository.findById(id);
+
+         return clientes.orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
     }
 
     @Override
-    public Optional<Cliente> buscarCliente(Cliente cliente) {
-        return clienteRepository.findById(cliente.getId());
+    public Clientes criarCliente(ClientesDTO clientes) throws IOException {
+        String cep = MethodsUtils.buscaCep(clientes.getEndereco().getCep());
+        Enderecos endereco = new Gson().fromJson(cep, Enderecos.class);
+        Optional<Enderecos> verificaEndereco = enderecosRepository.findById(endereco.getCep());
+
+        Clientes salvarCliente = clienteRepository.save(modelMapper.map(clientes, Clientes.class));
+        if (verificaEndereco.isEmpty()){
+            enderecosRepository.saveAndFlush(endereco);
+        }
+        return salvarCliente;
+
     }
 
     @Override
-    public Cliente atualizarCliente(Cliente cliente) {
-        clienteRepository.findById(cliente.getId()).ifPresent(
+    public Optional<Clientes> buscarCliente(Clientes clientes) {
+        return clienteRepository.findById(clientes.getId());
+    }
+
+    @Override
+    public Clientes atualizarCliente(Clientes clientes) {
+        clienteRepository.findById(clientes.getId()).ifPresent(
                 item -> {
-                    item.setNome(cliente.getNome());
-                    item.setCpfCnpj(cliente.getCpfCnpj());
-                    item.setTelefone(cliente.getTelefone());
-                    item.setEmail(cliente.getEmail());
+                    item.setNome(clientes.getNome());
+                    item.setCpfCnpj(clientes.getCpfCnpj());
+                    item.setTelefone(clientes.getTelefone());
+                    item.setEmail(clientes.getEmail());
                 }
         );
-        return cliente;
+        return clientes;
     }
 
     @Override
-    public String deleteCliente(Cliente cliente) {
+    public String deleteCliente(Clientes clientes) {
         try{
-            clienteRepository.delete(cliente);
-            return cliente.getNome() + " Detelado com sucesso.";
+            clienteRepository.delete(clientes);
+            return clientes.getNome() + " Detelado com sucesso.";
         }catch (Exception e){
             return e.getMessage();
         }

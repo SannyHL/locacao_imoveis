@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public interface ImoveisServiceImpl {
+public class ImoveisServiceImpl {
 }
