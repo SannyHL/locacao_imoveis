@@ -14,6 +14,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClientesDTO {
 
+
+    private Long id;
     @NotBlank
     private String nome;
     @NotBlank
