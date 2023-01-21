@@ -29,7 +29,7 @@ public class Contratos {
 
     @OneToOne
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private Clientes clientes;
 
     @OneToOne
     @JoinColumn(name = "imovel_id")

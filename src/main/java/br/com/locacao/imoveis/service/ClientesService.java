@@ -1,6 +1,7 @@
 package br.com.locacao.imoveis.service;
 
-import br.com.locacao.imoveis.model.Cliente;
+import br.com.locacao.imoveis.DTO.ClientesDTO;
+import br.com.locacao.imoveis.model.Clientes;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,13 +9,13 @@ import java.util.Optional;
 
 public interface ClientesService {
 
-    List<Cliente> todosCliente();
-    Cliente criarCliente(Cliente cliente) throws IOException;
+    List<Clientes> buscarTodosCliente();
 
-    Optional<Cliente> buscarCliente(Cliente cliente);
+    Clientes criarCliente(ClientesDTO clientes) throws IOException;
 
+    Optional<Clientes> buscarCliente(Clientes clientes);
 
-    Cliente atualizarCliente(Cliente cliente);
+    Clientes atualizarCliente(Clientes clientes);
 
-    String deleteCliente(Cliente cliente);
+    String deleteCliente(Clientes clientes);
 }

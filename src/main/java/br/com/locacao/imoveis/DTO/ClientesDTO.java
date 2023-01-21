@@ -12,10 +12,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDTO {
+public class ClientesDTO {
 
-    @NotBlank
-    private Long id;
     @NotBlank
     private String nome;
     @NotBlank
@@ -24,6 +22,9 @@ public class ClienteDTO {
     private String email;
     @NotBlank
     private String telefone;
+
+    @NotBlank
+    private Long numeroCasa;
 
     @NotBlank
     private Enderecos endereco;
