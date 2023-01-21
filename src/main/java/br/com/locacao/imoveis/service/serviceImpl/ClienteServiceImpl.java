@@ -42,11 +42,12 @@ public class ClienteServiceImpl implements ClientesService {
         Enderecos endereco = new Gson().fromJson(cep, Enderecos.class);
         Optional<Enderecos> verificaEndereco = enderecosRepository.findById(endereco.getCep());
 
-        Clientes salvarCliente = clienteRepository.save(modelMapper.map(clientes, Clientes.class));
+
         if (verificaEndereco.isEmpty()){
             enderecosRepository.saveAndFlush(endereco);
         }
-        return salvarCliente;
+        clientes.setEndereco(endereco);
+        return clienteRepository.save(modelMapper.map(clientes, Clientes.class));
 
     }
 

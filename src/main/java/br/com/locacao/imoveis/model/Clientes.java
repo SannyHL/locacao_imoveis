@@ -38,7 +38,7 @@ public class Clientes {
     @Column(unique = true)
     private String telefone;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "endereco_cep")
     private Enderecos endereco;
 }
