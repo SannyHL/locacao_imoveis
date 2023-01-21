@@ -29,11 +29,6 @@ public class ClienteServiceImpl implements ClientesService {
         return clienteRepository.findAll();
     }
 
-    public Clientes buscarClientesPorId(Long id){
-         Optional<Clientes> clientes = clienteRepository.findById(id);
-
-         return clientes.orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-    }
 
     @Override
     public Clientes criarCliente(ClientesDTO clientes) throws IOException {

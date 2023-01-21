@@ -19,7 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/cliente")
 @RequiredArgsConstructor
-public class ClienteController {
+public class ClientesController {
 
     private final ClientesService clienteService;
     private final ModelMapper modelMapper;
