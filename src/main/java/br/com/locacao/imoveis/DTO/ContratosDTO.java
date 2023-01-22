@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -20,9 +21,12 @@ public class ContratosDTO {
     @NotBlank
     private Long id;
     @NotBlank
-    private Long valorLocacao;
+    private Float valorLocacao;
+    @NotBlank
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataInicio;
     @NotBlank
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataFim;
     @NotBlank
     private Boolean ativo;
