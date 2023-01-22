@@ -106,9 +106,12 @@ Script: CREATE DATABASE DB_LOCACAO;
 
 ➩ Para criação de cliente, imoveis e contratos não se faz necessário informar o ID pois ele será gerado automaticamente.
 
-➩ Ao salvar ou atualizar um cliente ou um imovel atravez da API do Via Cep o endereço é salvo automaticamente, sendo necessário informar somente o cep e o numero da moradia.
+➩ Ao salvar ou atualizar um cliente ou um imóvel,o endereço é salvo automaticamente através da API do Via Cep, sendo 
 
-➩ A exclusão de um contrato ou imóvel é realizaza de forma lógica, dessa forma seu registro permanece no banco de dados. Mas o cliente é deletado de forma definitiva.
+necessário informar somente o cep e o número da moradia.
+
+➩ A exclusão de um contrato ou imóvel é realizaza de forma lógica, dessa forma seu registro permanece no banco de dados. 
+Mas a exclusão de cliente é realizada de forma definitiva.
 
 ```
 
@@ -133,6 +136,7 @@ Script: CREATE DATABASE DB_LOCACAO;
 - MySql
 - Swagger
 - JPA
+- API Via Cep
 
 
 ### Autora
