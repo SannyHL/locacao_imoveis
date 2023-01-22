@@ -102,18 +102,15 @@ Script: CREATE DATABASE DB_LOCACAO;
 
 <h2 align="center">❗ Importante<br></h2>
 
-```bash
-
 ➩ Para criação de cliente, imoveis e contratos não se faz necessário informar o ID pois ele será gerado automaticamente.
 
-➩ Ao salvar ou atualizar um cliente ou um imóvel,o endereço é salvo automaticamente através da API do Via Cep, sendo 
-
+➩ Ao salvar ou atualizar um cliente ou um imóvel,o endereço é salvo automaticamente através da API do Via Cep, sendo
 necessário informar somente o cep e o número da moradia.
 
 ➩ A exclusão de um contrato ou imóvel é realizaza de forma lógica, dessa forma seu registro permanece no banco de dados. 
-Mas a exclusão de cliente é realizada de forma definitiva.
+Mas a exclusão de cliente é realizada de forma definitiva. <br>
 
-```
+-----------------------------------
 
 <h3>✏️ Exemplo de Json para criação de Cliente:<br></h3>
 
