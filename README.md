@@ -65,6 +65,10 @@
 <br>Caminho local: http://localhost:8080/api/v1/enderecos/{CEP}
 ------------------------------
 - [X] Utilização do Swagger para executar as solicitações
+<br>Caminho local: http://localhost:8080/swagger-ui/index.html#/<br>
+
+- **Além do Swagger as requisições podem ser realizadas através dos caminhos informados acima, por aplicativos como [Postman](https://www.postman.com/), [IInsomnia](https://insomnia.rest/download) e também por um Front-End.**
+<br>
 
 <h2>Pré-requisitos</h2>
 
