@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.NonNull;
 
 @Getter
 @Setter
@@ -17,9 +18,14 @@ public class Imoveis {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    @NonNull
     private Long numeroCasa;
+
+    @NonNull
     private Boolean locado;
 
+    @NonNull
     private Boolean ativo;
 
     @ManyToOne

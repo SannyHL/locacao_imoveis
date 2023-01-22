@@ -27,11 +27,11 @@ public class Contratos {
 
     private Date dataFim;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Clientes clientes;
 
-    @OneToOne
-    @JoinColumn(name = "imovel_id")
+    @ManyToOne
+    @JoinColumn(name = "imoveis_id")
     private Imoveis imovel;
 }

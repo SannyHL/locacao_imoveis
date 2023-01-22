@@ -13,9 +13,9 @@ public interface ClientesService {
 
     Clientes criarCliente(ClientesDTO clientes) throws IOException;
 
-    Optional<Clientes> buscarCliente(Clientes clientes);
+    Optional<Clientes> buscarClientePorId(Long id);
 
-    Clientes atualizarCliente(Clientes clientes);
+    Clientes atualizarCliente(ClientesDTO clientes) throws IOException;
 
-    String deleteCliente(Clientes clientes);
+    void deleteClientePorId(Long id);
 }

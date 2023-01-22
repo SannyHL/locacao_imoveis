@@ -22,7 +22,6 @@ public class ClienteServiceImpl implements ClientesService {
 
     private final ClientesRepository clienteRepository;
     private final EnderecosRepository enderecosRepository;
-
     private final ModelMapper modelMapper;
 
     @Override
@@ -30,11 +29,6 @@ public class ClienteServiceImpl implements ClientesService {
         return clienteRepository.findAll();
     }
 
-    public Clientes buscarClientesPorId(Long id){
-         Optional<Clientes> clientes = clienteRepository.findById(id);
-
-         return clientes.orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-    }
 
     @Override
     public Clientes criarCliente(ClientesDTO clientes) throws IOException {
@@ -42,40 +36,34 @@ public class ClienteServiceImpl implements ClientesService {
         Enderecos endereco = new Gson().fromJson(cep, Enderecos.class);
         Optional<Enderecos> verificaEndereco = enderecosRepository.findById(endereco.getCep());
 
-        Clientes salvarCliente = clienteRepository.save(modelMapper.map(clientes, Clientes.class));
         if (verificaEndereco.isEmpty()){
             enderecosRepository.saveAndFlush(endereco);
         }
-        return salvarCliente;
+        clientes.setEndereco(endereco);
+        return clienteRepository.save(modelMapper.map(clientes, Clientes.class));
 
     }
 
     @Override
-    public Optional<Clientes> buscarCliente(Clientes clientes) {
-        return clienteRepository.findById(clientes.getId());
+    public Optional<Clientes> buscarClientePorId(Long id) {
+        return clienteRepository.findById(id);
     }
 
     @Override
-    public Clientes atualizarCliente(Clientes clientes) {
-        clienteRepository.findById(clientes.getId()).ifPresent(
-                item -> {
-                    item.setNome(clientes.getNome());
-                    item.setCpfCnpj(clientes.getCpfCnpj());
-                    item.setTelefone(clientes.getTelefone());
-                    item.setEmail(clientes.getEmail());
-                }
-        );
-        return clientes;
-    }
+    public Clientes atualizarCliente(ClientesDTO clientes) throws IOException {
+        String cep = MethodsUtils.buscaCep(clientes.getEndereco().getCep());
+        Enderecos endereco = new Gson().fromJson(cep, Enderecos.class);
+        Optional<Enderecos> verificaEndereco = enderecosRepository.findById(endereco.getCep());
 
-    @Override
-    public String deleteCliente(Clientes clientes) {
-        try{
-            clienteRepository.delete(clientes);
-            return clientes.getNome() + " Detelado com sucesso.";
-        }catch (Exception e){
-            return e.getMessage();
+        if (verificaEndereco.isEmpty()){
+            enderecosRepository.saveAndFlush(endereco);
         }
+        clientes.setEndereco(endereco);
+        return clienteRepository.save(modelMapper.map(clientes, Clientes.class));
+    }
 
+    @Override
+    public void deleteClientePorId(Long id) {
+        clienteRepository.deleteById(id);
     }
 }
