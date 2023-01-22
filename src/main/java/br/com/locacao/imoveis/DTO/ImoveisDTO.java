@@ -17,6 +17,5 @@ public class ImoveisDTO {
     private Long numeroCasa;
     private Boolean locado;
     private Enderecos endereco;
-
     private Boolean ativo;
 }
