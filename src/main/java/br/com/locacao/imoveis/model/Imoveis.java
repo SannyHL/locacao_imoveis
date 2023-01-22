@@ -31,5 +31,4 @@ public class Imoveis {
     @ManyToOne
     @JoinColumn(name = "endereco_cep")
     private Enderecos endereco;
-
 }
