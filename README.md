@@ -18,25 +18,46 @@
 <br>
 <h2>Recursos disponíveis</h2>
 
-- [x] Cadastro de clientes
-- [X] Buscar todos clientes 
-- [X] Buscar cliente por ID
-- [x] Exclusão de clientes
-- [X] Atualização de clientes
+- [x] **Cadastro de clientes:**
+<br>Caminho local: http://localhost:8080/api/v1/clientes
+- [X] **Buscar todos clientes:**
+<br>Caminho local: http://localhost:8080/api/v1/clientes
+- [X] **Buscar cliente por ID:**
+<br>Caminho local: http://localhost:8080/api/v1/clientes/{id}
+- [x] **Exclusão de clientes:**
+<br>Caminho local: http://localhost:8080/api/v1/clientes/deletar-cliente/{id}
+- [X] **Atualização de clientes:**
+<br>Caminho local: http://localhost:8080/api/v1/clientes/atualizar-cliente/{id}
 -----------------------------
-- [x] Cadastro de Imóveis
-- [x] Exclusão de Imóveis
-- [X] Atualização de Imóveis
-- [X] Buscar todos imóveis 
-- [X] Buscar imóveis por ID
-- [X] Buscar imóveis por ativos ou initivos
-- [X] Buscar imóveis por locados ou não locados
+- [x] **Cadastro de Imóveis:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis
+- [X] **Buscar todos imóveis:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis
+- [x] **Exclusão de Imóveis:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/deletar-imovel/{id}
+- [X] **Atualização de Imóveis:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/atualizar-imovel/{id}
+- [X] **Buscar imóveis por ID:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/{id}
+- [X] **Buscar imóveis por ativos:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/buscar-imoveis-ativos
+- [X] **Buscar imóveis por inativos:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/buscar-imoveis-inativos
+- [X] **Buscar imóveis por locados:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/buscar-imoveis-locados
+- [X] **Buscar imóveis por não locados:**
+<br>Caminho local: http://localhost:8080/api/v1/imoveis/buscar-imoveis-nao-locados
 ------------------------------
-- [x] Cadastro de contratos
-- [X] Buscar todos contratos 
-- [X] Buscar contratos por ID
-- [x] Exclusão de contratos
-- [X] Atualização de contratos
+- [x] **Cadastro de contratos:**
+<br>Caminho local: http://localhost:8080/api/v1/contratos
+- [X] **Buscar todos contratos:**
+<br>Caminho local: http://localhost:8080/api/v1/contratos
+- [X] **Buscar contratos por ID:**
+<br>Caminho local: http://localhost:8080/api/v1/contratos/{id}
+- [x] **Exclusão de contratos:**
+<br>Caminho local: http://localhost:8080/api/v1/contratos/deletar-cliente/{id}
+- [X] **Atualização de contratos:**
+<br>Caminho local: http://localhost:8080/api/v1/contratos/atualizar-contrato/{id}
 ------------------------------
 - [X] Utilização do Swagger para executar as solicitações
 
@@ -73,6 +94,32 @@ Script: CREATE DATABASE DB_LOCACAO;
 ➩ O caminho para acessar o Swagger é: <http://localhost:8080/swagger-ui/index.html#/>
 
 ```
+
+<h2 align="center">❗ Importante<br></h2>
+
+```bash
+
+➩ Para criação de cliente, imoveis e contratos não se faz necessário informar o ID pois ele será gerado automaticamente.
+
+➩ Ao salvar ou atualizar um cliente ou um imovel atravez da API do Via Cep o endereço é salvo automaticamente, sendo necessário informar somente o cep e o numero da moradia.
+
+➩ A exclusão de um contrato ou imóvel é realizaza de forma lógica, dessa forma seu registro permanece no banco de dados. Mas o cliente é deletado de forma definitiva.
+
+```
+
+<h3>✏️ Exemplo de Json para criação de Cliente:<br></h3>
+
+![image](https://user-images.githubusercontent.com/104280692/213899057-770d4a27-417f-4ccb-94d2-1c7c66905e2a.png)
+
+<h3>✏️ Exemplo de Json para Criação de Imóvel:<br></h3>
+
+![image](https://user-images.githubusercontent.com/104280692/213899141-154d563c-753d-4b06-af44-7c8de996d64a.png)
+
+<h3>✏️ Exemplo de Json para criação de Contrato:<br></h3>
+
+![image](https://user-images.githubusercontent.com/104280692/213899132-5ab8b87d-ab2a-4855-84e2-0a3386d36841.png)
+
+
 
 ### 🛠 Tecnologias utilizadas na construção do projeto:
 
