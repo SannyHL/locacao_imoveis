@@ -25,6 +25,8 @@ public class ContratosDTO {
     @NotBlank
     private Date dataFim;
     @NotBlank
+    private Boolean ativo;
+    @NotBlank
     private Clientes clientes;
     @NotBlank
     private Imoveis imovel;
