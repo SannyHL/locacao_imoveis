@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.NonNull;
 
 import java.util.Date;
 
@@ -21,11 +22,15 @@ public class Contratos {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
+    @NonNull
     private Long valorLocacao;
 
+    @NonNull
     private Date dataInicio;
-
+    @NonNull
     private Date dataFim;
+    @NonNull
+    private Boolean ativo;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")

@@ -41,6 +41,6 @@ public class ContratosServiceImpl implements ContratosService {
 
     @Override
     public void deleteContratoPorId(Long id) {
-        contratosRepository.deleteById(id);
+        contratosRepository.deleteContratoPorId(id);
     }
 }
