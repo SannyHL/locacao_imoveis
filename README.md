@@ -20,7 +20,7 @@
 
 - [x] **Cadastro de clientes:**
 <br>Caminho local: http://localhost:8080/api/v1/clientes
-- [X] **Buscar todos clientes:**
+- [X] **Buscar todos os clientes:**
 <br>Caminho local: http://localhost:8080/api/v1/clientes
 - [X] **Buscar cliente por ID:**
 <br>Caminho local: http://localhost:8080/api/v1/clientes/{id}
@@ -31,7 +31,7 @@
 -----------------------------
 - [x] **Cadastro de Imóveis:**
 <br>Caminho local: http://localhost:8080/api/v1/imoveis
-- [X] **Buscar todos imóveis:**
+- [X] **Buscar todos os imóveis:**
 <br>Caminho local: http://localhost:8080/api/v1/imoveis
 - [x] **Exclusão de Imóveis:**
 <br>Caminho local: http://localhost:8080/api/v1/imoveis/deletar-imovel/{id}
@@ -50,7 +50,7 @@
 ------------------------------
 - [x] **Cadastro de contratos:**
 <br>Caminho local: http://localhost:8080/api/v1/contratos
-- [X] **Buscar todos contratos:**
+- [X] **Buscar todos os contratos:**
 <br>Caminho local: http://localhost:8080/api/v1/contratos
 - [X] **Buscar contratos por ID:**
 <br>Caminho local: http://localhost:8080/api/v1/contratos/{id}
@@ -58,6 +58,11 @@
 <br>Caminho local: http://localhost:8080/api/v1/contratos/deletar-cliente/{id}
 - [X] **Atualização de contratos:**
 <br>Caminho local: http://localhost:8080/api/v1/contratos/atualizar-contrato/{id}
+------------------------------
+- [X] **Buscar todos os Endereços:**
+<br>Caminho local: http://localhost:8080/api/v1/enderecos
+- [X] **Buscar Endereços por CEP:**
+<br>Caminho local: http://localhost:8080/api/v1/enderecos/{CEP}
 ------------------------------
 - [X] Utilização do Swagger para executar as solicitações
 
@@ -117,7 +122,7 @@ Script: CREATE DATABASE DB_LOCACAO;
 
 <h3>✏️ Exemplo de Json para criação de Contrato:<br></h3>
 
-![image](https://user-images.githubusercontent.com/104280692/213899132-5ab8b87d-ab2a-4855-84e2-0a3386d36841.png)
+![image](https://user-images.githubusercontent.com/104280692/213900448-3a83df3b-f487-4218-9e31-c83ee43fee62.png)
 
 
 
